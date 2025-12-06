@@ -1,12 +1,16 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-const port = process.env.PORT || 8080;
 
-// Serve static files from public folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files if needed
+app.use(express.static('public'));
 
-// Uncomment if you are using client-side routing for SPA:
-// app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+// Example route
+app.get('/', (req, res) => {
+  res.send('Hello from Scout!');
+});
 
-app.listen(port, () => console.log(`Server listening on ${port}`));
+// Listen on the port provided by EB
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
