@@ -1,0 +1,10 @@
+var fnumber;
+var snumber;
+var numb1;
+var numb2;
+fnumber=prompt("enter the first num");
+snumber=prompt("enter your second num");
+numb1=parseInt(fnumber);
+numb2=parseInt(snumber);
+var sum=numb1+numb2;
+document.writeln("the sum is"+sum);
