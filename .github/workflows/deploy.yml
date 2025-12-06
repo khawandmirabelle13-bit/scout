@@ -40,7 +40,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: "Scoot"
           environment_id: "e-t3z9myh8nm"
-          version_label: "v-${{ github.run_number }}""
+          version_label: "v-${{ github.run_number }}"
           region: eu-north-1
           deployment_package: deploy.zip
           use_existing_version_if_available: true
