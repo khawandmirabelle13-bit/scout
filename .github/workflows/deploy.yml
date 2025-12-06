@@ -3,18 +3,18 @@ name: Deploy to Elastic Beanstalk
 on:
   push:
     branches:
-      - main # trigger on pushes to main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
+      # Step 2: Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -24,13 +24,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build project (if you have a build step)
+      # Step 4: Build (if needed)
       - name: Build
         run: npm run build || echo "No build step"
 
       # Step 5: Zip the project for EB
       - name: Prepare deploy package
-        run: zip -r deploy.zip . -x "*.git*" "*.github*" "node_modules/*"
+        run: |
+          zip -r deploy.zip . -x "*.git*" "*.github*" "node_modules/*" "*.zip"
 
       # Step 6: Deploy to Elastic Beanstalk
       - name: Deploy to Elastic Beanstalk
@@ -39,7 +40,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: "Scoot"
-          environment_id: "e-t3z9myh8nm"
+          environment_name: "Scoot-env"
           version_label: "v-${{ github.run_number }}"
           region: eu-north-1
           deployment_package: deploy.zip
