@@ -11,5 +11,18 @@
   },
   "engines": {
     "node": ">=24.0.0"
-  }
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khawandmirabelle13-bit/scout.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/khawandmirabelle13-bit/scout/issues"
+  },
+  "homepage": "https://github.com/khawandmirabelle13-bit/scout#readme"
 }
