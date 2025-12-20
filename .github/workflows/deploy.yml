@@ -39,7 +39,7 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: "Scout"
+          application_name: "scout"
           environment_name: "Scout-env"
           version_label: "v-${{ github.run_number }}"
           region: eu-north-1
